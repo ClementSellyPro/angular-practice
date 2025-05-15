@@ -1,0 +1,6 @@
+.logo-nav-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  border-bottom: 1px solid black;
+}
