@@ -1,6 +1,13 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 4px;
+  border-bottom: 1px solid black;
+}
+
 .logo-nav-section {
   display: flex;
   align-items: center;
   gap: 60px;
-  border-bottom: 1px solid black;
 }

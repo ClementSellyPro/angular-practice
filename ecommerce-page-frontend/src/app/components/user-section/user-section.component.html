@@ -1,0 +1,7 @@
+<div class="user-section">
+  <div class="cart-section">
+    <img (click)="displayModal()" class="cart-section-icon" ngSrc="assets/images/icon-cart.svg" alt="cart" height="25" width="26" />
+      <app-modal-cart class="cart-section-modal" *ngIf="(isCartOpen)" />
+  </div>
+  <img class="user-section-avatar" ngSrc="assets/images/image-avatar.png" alt="user" height="100" width="100" />
+</div>
