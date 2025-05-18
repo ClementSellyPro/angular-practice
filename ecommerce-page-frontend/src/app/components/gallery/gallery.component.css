@@ -1,0 +1,29 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 40%;
+}
+
+.gallery-image-main {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.gallery-image-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery-image-item {
+  width: 20%;
+  height: 20%;
+  border-radius: 15px;
+  border: 2px solid transparent;
+}
+.gallery-image-item:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  border: 2px solid hsl(26, 100%, 55%);
+}
