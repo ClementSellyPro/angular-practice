@@ -1,10 +1,8 @@
 <section class="description-section">
-  <h1 class="brand-name">SNEAKER COMPANY</h1>
-  <h2 class="model-name">Fall Limited Edition Sneakers</h2>
+  <h1 class="brand-name">{{ currentItem?.brand }}</h1>
+  <h2 class="model-name">{{ currentItem?.name }}</h2>
   <p class="description">
-    These low-profile sneakers are your perfect casual wear companions.
-    Featuring a durable rubber outer sole, they'll withstand everything
-    the weather can offer.
+    {{ currentItem?.description }}
   </p>
   <div class="price-section">
     <p class="price-sale-section"><span class="price-discount">$125.00</span><span class="discount">50%</span></p>
@@ -12,9 +10,9 @@
   </div>
   <div class="button-section">
     <div class="quantity-section">
-      <img class="icon-quantity" ngSrc="assets/images/icon-minus.svg" alt="Minus Icon" height="5" width="12" />
-      0
-      <img class="icon-quantity" ngSrc="assets/images/icon-plus.svg" alt="Plus Icon" height="12" width="12" />
+      <img (click)="quantityClick()" class="icon-quantity" ngSrc="assets/images/icon-minus.svg" alt="Minus Icon" height="5" width="12" />
+      {{ quantity }}
+      <img (click)="quantityClick()" class="icon-quantity" ngSrc="assets/images/icon-plus.svg" alt="Plus Icon" height="12" width="12" />
     </div>
     <button>
       <img ngSrc="assets/images/icon-cart.svg" alt="Cart Icon" height="20" width="22"/>
