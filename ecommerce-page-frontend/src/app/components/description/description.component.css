@@ -1,0 +1,93 @@
+.description-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  height: 100%;
+  margin: 0;
+}
+
+.brand-name {
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: hsl(219, 9%, 45%);
+}
+
+.model-name {
+  font-size: 42px;
+}
+
+.description {
+  margin-top: 20px;
+  letter-spacing: 1px;
+  color: hsl(219, 9%, 45%);
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+.price-sale-section {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.price-discount {
+  font-size: 24px;
+}
+
+.discount{
+  color: white;
+  background-color: black;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+.price {
+  font-size: 14px;
+  color: hsl(219, 9%, 45%);
+  text-decoration: line-through;
+}
+
+.button-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quantity-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: hsl(223, 64%, 98%);
+  height: 50px;
+  width: 35%;
+  border-radius: 5px;
+  padding: 0 20px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  font-weight: bold;
+  border: none;
+  background-color: hsl(26, 100%, 55%);
+  width: 60%;
+  border-radius: 5px;
+}
+
+.icon-quantity:hover, button:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+  opacity: 0.9;
+}
+
+button img {
+  filter: brightness(0.2);
+}
