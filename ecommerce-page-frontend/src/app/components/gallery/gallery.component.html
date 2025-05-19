@@ -2,7 +2,13 @@
   <img class="gallery-image-main" [ngSrc]="images[selectedImage].largeImg" alt="gallery" height="1000" width="1000" />
   <div class="gallery-image-items">
     @for (image of images; track image.largeImg) {
-      <img (click)="selectImage(image.id)" class="gallery-image-item" [ngSrc]="image.thumbImg" alt="gallery" height="176" width="176" />
+      <img
+        (click)="selectImage(image.id)"
+        [ngClass]="{ 'isSelected': image.id === selectedImage }"
+        class="gallery-image-item"
+        [ngSrc]="image.thumbImg"
+        alt="gallery"
+        height="176" width="176" />
     }
   </div>
 </div>
