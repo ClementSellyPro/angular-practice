@@ -10,7 +10,7 @@ export class ItemsService {
       id: 'i0001',
       brand: 'SNEAKER COMPANY',
       name: 'Fall Limited Edition Sneakers',
-      price: 25000,
+      price: 250,
       description: 'These low-profile sneakers are your perfect casual wear companions.Featuring a durable rubber outer sole, they\'ll withstand everythin the weather can offer.',
       discount: 50
     }
