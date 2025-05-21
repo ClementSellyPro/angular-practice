@@ -1,10 +1,18 @@
 <div class="modal-cart">
   <h3 class="modal-cart-title">Cart</h3>
   <div class="modal-cart-content">
-<!--    <p>Your cart is empty</p>-->
     <div class="cart-items">
-      <app-cart-item />
-      <button class="checkout-btn">Checkout</button>
+      @if (commands.length > 0) {
+          @for (command of commands; track command.id) {
+            <app-cart-item
+              [command]="command"
+              (remove)="deleteItem($event)">
+            </app-cart-item>
+          }
+        <button class="checkout-btn">Checkout</button>
+      } @else {
+        <p class="cart-empty">Your cart is empty</p>
+      }
     </div>
   </div>
 </div>

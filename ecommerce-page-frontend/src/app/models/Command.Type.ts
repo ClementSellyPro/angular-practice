@@ -1,7 +1,7 @@
 export type CommandType = {
-  'id': string;
-  'item': string;
-  'price': string;
-  'quantity': string;
-  'image': string;
+  id: string;
+  item: string;
+  price: string;
+  quantity: string;
+  image: string;
 }

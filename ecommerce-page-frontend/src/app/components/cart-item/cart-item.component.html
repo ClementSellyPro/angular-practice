@@ -1,13 +1,13 @@
 <div class="cart-item">
   <img class="cart-item-image" ngSrc="assets/images/image-product-1-thumbnail.jpg" alt="cart" height="176" width="176" />
 
-  <div class="cart-item-info">
-    <p class="cart-item-name">Fall Limited Edition Sneakers</p>
-    <p class="cart-item-prices">
-      <span  class="cart-single-price">$125.00</span>
-      <span> x 3</span>
-      <span class="cart-total-price">$375.00</span></p>
-  </div>
+    <div class="cart-item-info">
+      <p class="cart-item-name">{{ command.item }}</p>
+      <p class="cart-item-prices">
+        <span  class="cart-single-price">${{ command.price | number:'1.2-2' }}</span>
+        <span> x {{ command.quantity }}</span>
+        <span class="cart-total-price">${{ +command.price * +command.quantity | number:'1.2-2' }}</span></p>
+    </div>
 
-  <img class="cart-item-delete" ngSrc="assets/images/icon-delete.svg" alt="delete" height="16" width="14" />
+  <img (click)="onDelete()" class="cart-item-delete" ngSrc="assets/images/icon-delete.svg" alt="delete" height="16" width="14" />
 </div>

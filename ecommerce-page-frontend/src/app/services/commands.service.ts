@@ -6,7 +6,20 @@ import {CommandType} from '../models/Command.Type';
 })
 export class CommandsService {
   private commands: CommandType[] = [
-
+    {
+      id: '001',
+      item: 'Fall Limited Edition Sneakers',
+      price: '125',
+      quantity: '3',
+      image: 'assets/images/image-product-1-thumbnail.jpg'
+    },
+    {
+      id: '002',
+      item: 'Fall Limited Edition Sneakers',
+      price: '125',
+      quantity: '1',
+      image: 'assets/images/image-product-1-thumbnail.jpg'
+    }
   ];
 
   getCommands(): CommandType[] {
@@ -19,5 +32,9 @@ export class CommandsService {
 
   addQuantity(): void {
 
+  }
+
+  removeItem(idItem: string): void {
+    this.commands = this.commands.filter(command => command.id !== idItem);
   }
 }
