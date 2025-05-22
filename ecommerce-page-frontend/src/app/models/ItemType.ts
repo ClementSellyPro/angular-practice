@@ -5,4 +5,5 @@ export type ItemType = {
   price: number;
   description: string;
   discount: number;
+  images: string[];
 };

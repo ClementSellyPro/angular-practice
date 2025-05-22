@@ -10,11 +10,11 @@
   </div>
   <div class="button-section">
     <div class="quantity-section">
-      <img (click)="quantityClick('minus')" class="icon-quantity" ngSrc="assets/images/icon-minus.svg" alt="Minus Icon" height="5" width="12" />
+      <img (click)="quantityClick('minus')" class="icon-quantity" ngSrc="assets/images/icon-minus.svg" alt="Minus Icon" height="4" width="12" />
       {{ quantity }}
       <img (click)="quantityClick('plus')" class="icon-quantity" ngSrc="assets/images/icon-plus.svg" alt="Plus Icon" height="12" width="12" />
     </div>
-    <button>
+    <button (click)="addToCart()">
       <img ngSrc="assets/images/icon-cart.svg" alt="Cart Icon" height="20" width="22"/>
       Add to cart
     </button>

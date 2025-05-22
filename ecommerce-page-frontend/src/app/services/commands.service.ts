@@ -1,40 +1,32 @@
 import {Injectable} from '@angular/core';
 import {CommandType} from '../models/Command.Type';
+import {ItemType} from '../models/ItemType';
 
 @Injectable({
  providedIn: 'root'
 })
 export class CommandsService {
-  private commands: CommandType[] = [
-    {
-      id: '001',
-      item: 'Fall Limited Edition Sneakers',
-      price: '125',
-      quantity: '3',
-      image: 'assets/images/image-product-1-thumbnail.jpg'
-    },
-    {
-      id: '002',
-      item: 'Fall Limited Edition Sneakers',
-      price: '125',
-      quantity: '1',
-      image: 'assets/images/image-product-1-thumbnail.jpg'
-    }
-  ];
+  private commands: CommandType[] = [];
 
   getCommands(): CommandType[] {
     return [...this.commands];
   }
 
-  addCommand(command: CommandType): void {
-    this.commands.push(command);
-  }
-
-  addQuantity(): void {
-
-  }
-
   removeItem(idItem: string): void {
     this.commands = this.commands.filter(command => command.id !== idItem);
+  }
+
+  addItem(item: ItemType, quantity: number): void {
+    if (quantity <= 0) return
+
+    const newCommand: CommandType = {
+      id: crypto.randomUUID(),
+      item: item.name,
+      price: ((item.price - item.price * (item.discount / 100)).toFixed(2)).toString(),
+      quantity: quantity.toString(),
+      image: item.images[1]
+    }
+
+    this.commands.push(newCommand);
   }
 }

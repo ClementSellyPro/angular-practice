@@ -1,5 +1,5 @@
 <div class="gallery">
-  <img class="gallery-image-main" [ngSrc]="images[selectedImage].largeImg" alt="gallery" height="1000" width="1000" />
+  <img class="gallery-image-main" [ngSrc]="images[selectedImage].largeImg" alt="gallery" height="1000" width="1000" priority />
   <div class="gallery-image-items">
     @for (image of images; track image.largeImg) {
       <img
