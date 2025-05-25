@@ -1,3 +1,95 @@
 .destination {
   background-image: url("/assets/destination/background-destination-desktop.jpg");
+  padding-left: 128px;
+  padding-right: 128px;
+}
+
+.destination-title {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 4px;
+}
+
+.destination-title span {
+  font-weight: 700;
+  opacity: 0.4;
+}
+
+.destination-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  padding: 80px 40px;
+}
+
+.destination-text-information  {
+  width: 40%;
+}
+
+.destination-nav {
+  display: flex;
+  gap: 32px;
+  height: 40px;
+  list-style: none;
+  font-size: 18px;
+  font-family: 'Barlow Condensed', sans-serif;
+  color: #D0D6F9;
+}
+
+.destination-nav li {
+  height: 100%;
+  border-bottom: 4px solid rgba(255, 255, 255, 0);
+}
+
+.destination-nav li:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.destination-nav li.destination-nav-active {
+  color: rgba(255, 255, 255, 1);
+  border-bottom: 4px solid rgba(255, 255, 255, 1);
+}
+
+.destination-planet-name {
+  font-size: 96px;
+  font-weight: 400;
+  font-family: 'Bellefair', serif;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.destination-description {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 2;
+  color: #D0D6F9;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.destination-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.destination-stats-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.destination-stats-item h3 {
+  font-size: 14px;
+  font-weight: 300;
+  color: #D0D6F9;
+}
+
+.destination-stats-item p {
+  font-size: 28px;
+  font-family: 'Bellefair', serif;
 }
