@@ -4,23 +4,15 @@
   padding-right: 128px;
 }
 
-.destination-title {
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: 4px;
-}
-
-.destination-title span {
-  font-weight: 700;
-  opacity: 0.4;
-}
+/*.page-title, all .page-title are centralised within the global style.css*/
+/*.page-title span  */
 
 .destination-content {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 64px;
-  padding: 80px 40px;
+  padding: 80px 40px 0 40px;
 }
 
 .destination-text-information  {
@@ -48,7 +40,6 @@
   border-bottom: 4px solid rgba(255, 255, 255, 0.2);
 }
 
-/*.destination-nav li.destination-nav-active*/
 .destination-nav li.active {
   color: rgba(255, 255, 255, 1);
   border-bottom: 4px solid rgba(255, 255, 255, 1);

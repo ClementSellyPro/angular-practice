@@ -25,7 +25,6 @@ export class DestinationComponent implements OnInit {
 
       this.updateCurrentDestination();
     });
-    console.log(this.currentDestination);
   }
 
   updateCurrentDestination(): void {

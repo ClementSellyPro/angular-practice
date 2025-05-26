@@ -20,3 +20,16 @@ body {
   background-size: cover; /* to enlarge each background image */
   padding-top: 136px; /* to offset the header, because it has the fixed position */
 }
+
+.page-title {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  padding-left: 40px;
+  padding-top: 40px;
+}
+
+.page-title span {
+  font-weight: 700;
+  opacity: 0.4;
+}

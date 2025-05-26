@@ -1,3 +1,74 @@
 .crew {
   background-image: url("/assets/crew/background-crew-desktop.jpg");
+  padding-left: 128px;
+  padding-right: 128px;
+}
+
+/*.page-title, all .page-title are centralised within the global style.css*/
+/*.page-title span  */
+
+.crew-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  padding: 60px 40px 0 40px;
+}
+
+
+.crew-content-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /*padding-top: 82px;*/
+}
+
+.crew-profession {
+  font-size: 32px;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Bellefair', serif;
+}
+
+.crew-name {
+  font-size: 64px;
+  font-weight: 400;
+  font-family: 'Bellefair', serif;
+}
+
+.crew-description {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 2;
+  color: #D0D6F9;
+  width: 85%;
+}
+
+.crew-image {
+  margin-top: -40px;
+  width: 380px;
+  height: 518px;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.crew-navigation {
+  position: absolute;
+  bottom: 0;
+  left: 41px;
+  display:flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.crew-navigation-item {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.crew-navigation-item:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
 }
