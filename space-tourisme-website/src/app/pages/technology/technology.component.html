@@ -2,26 +2,31 @@
   <h1 class="page-title"><span>03</span> SPACE LAUNCH 101</h1>
   <div class="technology-content">
     <div class="technology-index">
-      <div class="technology-index-item active">1</div>
-      <div class="technology-index-item">2</div>
-      <div class="technology-index-item">3</div>
+      <div
+        [ngClass]="{'active': currentTechnologyIndex === 0}"
+        class="technology-index-item"
+        (click)="technologySelection(0)">1</div>
+      <div
+        [ngClass]="{'active': currentTechnologyIndex === 1}"
+        class="technology-index-item"
+        (click)="technologySelection(1)">2</div>
+      <div
+        [ngClass]="{'active': currentTechnologyIndex === 2}"
+        class="technology-index-item"
+        (click)="technologySelection(2)">3</div>
     </div>
 
     <div class="technology-text">
       <h2>THE TERMINOLOGY</h2>
-      <h1 class="technology-name">LAUNCH VEHICLE</h1>
+      <h1 class="technology-name">{{ currentTechnology.name | uppercase }}</h1>
       <p class="technology-description">
-        A launch vehicle or carrier rocket is a rocket-propelled vehicle
-        used to carry a payload from Earth's surface to space, usually to
-        Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful
-        in operation. Standing 150 metres tall, it's quite an awe-inspiring
-        sight on the launch pad!
+        {{ currentTechnology.description }}
       </p>
     </div>
 
     <div class="technology-image-container">
       <img class="technology-image"
-           ngSrc="assets/technology/image-launch-vehicle-portrait.jpg"
+           [ngSrc]="currentTechnology.images.portrait"
            width="515"
            height="527"
            alt="technologies"

@@ -32,6 +32,12 @@
   font-size: 32px;
 }
 
+.technology-index-item:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
+}
+
 .technology-index-item.active {
   background-color: rgba(255, 255, 255, 1);
   color: black;
