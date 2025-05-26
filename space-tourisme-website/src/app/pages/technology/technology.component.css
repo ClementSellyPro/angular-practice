@@ -1,3 +1,76 @@
 .technology {
   background-image: url("/assets/technology/background-technology-desktop.jpg");
+  padding-left: 128px;
+}
+
+/*.page-title, all .page-title are centralised within the global style.css*/
+/*.page-title span  */
+
+.technology-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 0 40px;
+}
+
+.technology-index {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.technology-index-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*gap: 64px;*/
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-family: 'Bellefair', serif;
+  font-size: 32px;
+}
+
+.technology-index-item.active {
+  background-color: rgba(255, 255, 255, 1);
+  color: black;
+}
+
+.technology-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 38%;
+}
+
+.technology-text h2 {
+  font-family: 'Bellefair', serif;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.technology-name {
+  font-family: 'Bellefair', serif;
+  font-size: 56px;
+  color: white;
+}
+
+.technology-description {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 2;
+  color: #D0D6F9;
+}
+
+.technology-image-container {
+  overflow: hidden;
+  width: 550px;
+  height: 565px;
+}
+
+.technology-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
