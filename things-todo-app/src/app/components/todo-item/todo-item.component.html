@@ -1,0 +1,18 @@
+<div class="todo-container" [ngClass]="{ modified: isModified }">
+  <h2 class="todo-title">Developper le backend du projet</h2>
+  <p class="description">
+    Ceci est une description de la tache a effectuer. Il faudra donc, comme il est inscrit dans le titre,
+    developper la partie backend du projet, afin d'implementer les fonctionnalites prevus dans les backlogs.
+    fonctionnalites prevus dans les backlogs.
+  </p>
+
+  <div class="btn-section" *ngIf="isModified">
+    <button class="cancel-btn" (click)="cancelModify()">Annuler</button>
+    <button class="add-btn">Ajouter</button>
+  </div>
+  <button class="validate-btn" *ngIf="!isModified"><img class="validate-img" src="assets/verifier.png" alt="Valider" /> </button>
+  <button
+    class="modified-btn"
+    *ngIf="!isModified"
+    (click)="onModify()">Modifier</button>
+</div>

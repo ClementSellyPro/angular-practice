@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  position: fixed;
+  top: 50px;
+  left: 80px;
+}
+
+section {
+  width: 550px;
+  padding-top: 180px;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-task {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+h1, .add-task {
+  font-size: 36px;
+}
+
+.task-list {
+  margin-top: 30px;
+}
