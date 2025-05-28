@@ -1,9 +1,7 @@
 <div class="todo-container" [ngClass]="{ modified: isModified }">
-  <h2 class="todo-title">Developper le backend du projet</h2>
+  <h2 class="todo-title">{{ this.task.title }}</h2>
   <p class="description">
-    Ceci est une description de la tache a effectuer. Il faudra donc, comme il est inscrit dans le titre,
-    developper la partie backend du projet, afin d'implementer les fonctionnalites prevus dans les backlogs.
-    fonctionnalites prevus dans les backlogs.
+    {{ this.task.description }}
   </p>
 
   <div class="btn-section" *ngIf="isModified">

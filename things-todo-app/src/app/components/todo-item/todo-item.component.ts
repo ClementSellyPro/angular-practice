@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
+import {TodoType} from '../../models/todoType.type';
 
 @Component({
   selector: 'app-todo-item',
@@ -12,6 +13,7 @@ import {NgClass, NgIf} from '@angular/common';
 })
 export class TodoItemComponent {
   isModified: boolean = false;
+  @Input() task!: TodoType;
 
   onModify() {
     this.isModified = true;

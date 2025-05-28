@@ -6,11 +6,12 @@
       <h1>ALL YOUR TASKS:</h1>
       <div class="add-task">
         NEW TASK
-        <img src="assets/plus-icon.png" alt="plus icon" />
+        <img (click)="onAddNewTask()" class="add-task-icon" src="assets/plus-icon.png" alt="plus icon" />
       </div>
     </div>
     <div class="task-list">
-      <app-todo-item />
+      <app-todo-item-input *ngIf="isAddNewTaskVisible$ | async" />
+      <app-todo-list/>
     </div>
   </section>
 </div>
