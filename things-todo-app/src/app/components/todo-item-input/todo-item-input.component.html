@@ -1,9 +1,10 @@
 <div class="todo-input-container">
-  <div class="input-section">
-    <input class="input-title" type="text" />
+  <div class="input-section" >
+    <input class="input-title" type="text" [(ngModel)]="inputTitle" aria-placeholder="Add a Title" />
     <textarea
       class="input-description"
-      rows="5">
+      rows="5"
+      [(ngModel)]="inputDescription" aria-placeholder="Add a Description">
     </textarea>
   </div>
 
