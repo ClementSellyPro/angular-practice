@@ -1,5 +1,5 @@
 <div class="todo-list">
-  @for(item of allTasks; track item.id) {
+  @for(item of (allTasks$ | async); track item.id) {
     <app-todo-item [task]="item" />
   }
 </div>

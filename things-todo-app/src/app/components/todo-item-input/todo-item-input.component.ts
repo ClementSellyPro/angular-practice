@@ -27,7 +27,7 @@ export class TodoItemInputComponent {
       description: this.inputDescription,
       isDone: false
     }
-    console.log("the new task in component is: ", newTask);
+
     this.todoService.addNewTask(newTask);
     this.inputTitle = '';
     this.inputDescription = '';

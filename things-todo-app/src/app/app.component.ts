@@ -19,11 +19,17 @@ import {Observable} from 'rxjs';
 })
 export class AppComponent implements OnInit {
   isAddNewTaskVisible$!: Observable<boolean>;
+  isTaskDoneDisplayed$!: Observable<boolean>;
 
   constructor(private todoService: TodoService) {}
 
   ngOnInit() {
     this.isAddNewTaskVisible$ = this.todoService.addNewTaskVisible$;
+    this.isTaskDoneDisplayed$ = this.todoService.isTaskDoneDisplayed$;
+  }
+
+  onFilter() {
+    this.todoService.filterTasks();
   }
 
   onAddNewTask() {

@@ -1,5 +1,5 @@
 <div class="container">
-  <img class="logo" ngSrc="assets/logo-todo.png" alt="logo" width="137" height="118" />
+  <img class="logo" ngSrc="assets/logo-todo.png" alt="logo" width="137" height="118" priority />
 
   <section>
     <div class="header-section">
@@ -9,9 +9,14 @@
         <img (click)="onAddNewTask()" class="add-task-icon" src="assets/plus-icon.png" alt="plus icon" />
       </div>
     </div>
+
+    <div class="filter-button" (click)="onFilter()">
+      filter: Tasks {{ (isTaskDoneDisplayed$ | async) ? 'Done' : 'To Do' }}
+    </div>
+
     <div class="task-list">
       <app-todo-item-input *ngIf="isAddNewTaskVisible$ | async" />
-      <app-todo-list/>
+      <app-todo-list />
     </div>
   </section>
 </div>

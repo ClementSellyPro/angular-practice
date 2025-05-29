@@ -1,14 +1,33 @@
 <div class="todo-container" [ngClass]="{ modified: isModified }">
-  <h2 class="todo-title">{{ this.task.title }}</h2>
-  <p class="description">
-    {{ this.task.description }}
-  </p>
+  <div *ngIf="!isModified">
+    <h2 class="todo-title">{{ this.task.title }}</h2>
+    <p class="description">
+      {{ this.task.description }}
+    </p>
+  </div>
+
+  <!-- Mode édition -->
+  <div *ngIf="isModified" class="edit-mode">
+    <input
+      [(ngModel)]="editedTitle"
+      class="edit-title"
+      placeholder="Titre de la tâche"
+      type="text">
+    <textarea
+      [(ngModel)]="editedDescription"
+      class="edit-description"
+      placeholder="Description de la tâche"></textarea>
+  </div>
 
   <div class="btn-section" *ngIf="isModified">
     <button class="cancel-btn" (click)="cancelModify()">Annuler</button>
     <button class="add-btn">Ajouter</button>
   </div>
-  <button class="validate-btn" *ngIf="!isModified"><img class="validate-img" src="assets/verifier.png" alt="Valider" /> </button>
+
+  <button (click)="onMarkedAsDone()" class="validate-btn" *ngIf="!isModified">
+    <img class="validate-img" src="assets/verifier.png" alt="Valider" />
+  </button>
+
   <button
     class="modified-btn"
     *ngIf="!isModified"
