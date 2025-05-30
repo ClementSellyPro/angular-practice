@@ -64,7 +64,22 @@ export class TodoService {
   }
 
   deleteTask(id: number) {
-    this.tasks.next(this.tasks.value.filter(task => task.id !== id));
+    if(this.tasks.value.some(task => task.id === id)){
+      this.tasks.next(this.tasks.value.filter(task => task.id !== id));
+      localStorage.setItem('tasks', JSON.stringify(this.tasks.value));
+    } else {
+      this.tasksDone.next(this.tasksDone.value.filter(task => task.id !== id));
+      localStorage.setItem('tasksDone', JSON.stringify(this.tasksDone.value));
+    }
+  }
+
+  validateModify(id: number, title: string, description: string) {
+    this.tasks.value.forEach(task => {
+      if (task.id === id) {
+        task.title = title;
+        task.description = description;
+      }
+    })
     localStorage.setItem('tasks', JSON.stringify(this.tasks.value));
   }
 }

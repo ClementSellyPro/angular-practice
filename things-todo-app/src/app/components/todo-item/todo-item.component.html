@@ -21,7 +21,7 @@
 
   <div class="btn-section" *ngIf="isModified">
     <button class="cancel-btn" (click)="cancelModify()">Annuler</button>
-    <button class="add-btn">Ajouter</button>
+    <button class="add-btn" (click)="validateModify()" >Ajouter</button>
   </div>
 
   <button (click)="onMarkedAsDone()" class="validate-btn" *ngIf="!isModified && !this.task.isDone">

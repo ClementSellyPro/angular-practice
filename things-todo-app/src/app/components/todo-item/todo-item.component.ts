@@ -42,4 +42,9 @@ export class TodoItemComponent {
   onDelete(id: number) {
     this.todoService.deleteTask(id);
   }
+
+  validateModify() {
+    this.todoService.validateModify(this.task.id, this.editedTitle, this.editedDescription);
+    this.isModified = false;
+  }
 }
