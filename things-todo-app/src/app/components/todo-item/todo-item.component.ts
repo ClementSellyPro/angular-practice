@@ -38,4 +38,8 @@ export class TodoItemComponent {
   onMarkedAsDone() {
     this.todoService.markedAsDone(this.task);
   }
+
+  onDelete(id: number) {
+    this.todoService.deleteTask(id);
+  }
 }

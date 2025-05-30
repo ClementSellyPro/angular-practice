@@ -24,21 +24,11 @@ export class TodoService {
     const savedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
     const savedDone = JSON.parse(localStorage.getItem('tasksDone') || '[]');
 
-    if (savedTasks.length === 0 && savedDone.length === 0) {
-      const defaultTasks = [
-        {id: 1, title: 'Task 1', description: 'Task 1 description', isDone: false},
-        {id: 2, title: 'Task 2', description: 'Task 2 description', isDone: false},
-      ];
-      this.tasks.next(defaultTasks);
-      this.nextId = 3;
-      localStorage.setItem('tasks', JSON.stringify(defaultTasks));
-    } else {
-      this.tasks.next(savedTasks);
-      this.tasksDone.next(savedDone);
+    this.tasks.next(savedTasks);
+    this.tasksDone.next(savedDone);
 
-      const allTasks = [...savedTasks, ...savedDone];
-      this.nextId = allTasks.length > 0 ? Math.max(...allTasks.map(t => t.id)) + 1 : 1;
-    }
+    const allTasks = [...savedTasks, ...savedDone];
+    this.nextId = allTasks.length > 0 ? Math.max(...allTasks.map(t => t.id)) + 1 : 1;
   }
 
   displayAddNewTask() {
@@ -71,5 +61,10 @@ export class TodoService {
 
   filterTasks() {
     this.isTaskDoneDisplayed.next(!this.isTaskDoneDisplayed.value);
+  }
+
+  deleteTask(id: number) {
+    this.tasks.next(this.tasks.value.filter(task => task.id !== id));
+    localStorage.setItem('tasks', JSON.stringify(this.tasks.value));
   }
 }

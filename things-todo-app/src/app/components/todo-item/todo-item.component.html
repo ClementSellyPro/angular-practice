@@ -24,12 +24,22 @@
     <button class="add-btn">Ajouter</button>
   </div>
 
-  <button (click)="onMarkedAsDone()" class="validate-btn" *ngIf="!isModified">
+  <button (click)="onMarkedAsDone()" class="validate-btn" *ngIf="!isModified && !this.task.isDone">
     <img class="validate-img" src="assets/verifier.png" alt="Valider" />
   </button>
 
-  <button
-    class="modified-btn"
-    *ngIf="!isModified"
-    (click)="onModify()">Modifier</button>
+  <div class="btn-section" *ngIf="!isModified">
+    <button
+      class="delete-btn"
+      *ngIf="!isModified"
+      (click)="onDelete(this.task.id)">
+      Supprimer
+    </button>
+    <button
+      class="modified-btn"
+      *ngIf="!isModified"
+      (click)="onModify()">
+      Modifier
+    </button>
+  </div>
 </div>

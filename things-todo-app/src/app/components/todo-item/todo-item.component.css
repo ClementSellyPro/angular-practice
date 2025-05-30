@@ -69,10 +69,11 @@ button:hover {
   background-color: #8CF67A;
 }
 
+.delete-btn {
+  background-color: #F06B6B;
+}
+
 .modified-btn {
-  position: absolute;
-  bottom: 15px;
-  right: 20px;
   font-size: 20px;
   border: 1px solid black;
   background-color: #dedede;
