@@ -5,10 +5,18 @@ header {
   padding: 25px 80px;
 }
 
-.logo {
+.logo a{
   font-family: 'Limelight', cursive;
   font-size: 50px;
-  color: #81d33f;
+  color: #6cbb2f;
+  text-decoration: none;
+  border: 1px solid transparent;
+  padding: 5px;
+}
+
+.logo a:hover {
+  border: 1px solid #6cbb2f;
+  border-radius: 5px;
 }
 
 nav {
@@ -28,5 +36,5 @@ nav {
 }
 
 .nav-link:hover {
-  border-bottom: 2px solid #81d33f;
+  border-bottom: 2px solid #6cbb2f;
 }
