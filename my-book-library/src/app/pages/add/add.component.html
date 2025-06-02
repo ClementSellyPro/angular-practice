@@ -1,1 +1,34 @@
-<p>add works!</p>
+<div class="container add-page">
+  <form>
+    <h1 class="form-title">Add a New Book</h1>
+    <div class="input-group">
+      <label>Book title</label>
+      <input type="text" name="title" [(ngModel)]="book.title">
+    </div>
+
+    <div class="input-group">
+      <label>Author</label>
+      <input type="text" name="title" [(ngModel)]="book.author">
+    </div>
+
+    <div class="input-group">
+      <label>Year</label>
+      <input type="text" name="title" [(ngModel)]="book.year">
+    </div>
+
+    <div class="input-group">
+      <label>Genre</label>
+      <input type="text" name="title" [(ngModel)]="book.genre">
+    </div>
+
+    <div class="input-group">
+      <label>Rating</label>
+      <input type="text" name="title" [(ngModel)]="book.rating">
+    </div>
+
+    <button class="btn-add">
+      Add Book
+    </button>
+  </form>
+</div>
+
