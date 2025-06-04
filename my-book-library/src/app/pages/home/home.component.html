@@ -9,30 +9,17 @@
   </div>
   <div class="books-list">
 
-    <div class="book-item">
-      <img class="book-image" ngSrc="./assets/plant.png" alt="plant" height="823" width="549"/>
-      <div class="book-information">
-        <h3 class="book-title">Title book</h3>
-        <p class="book-description">
-          Little description of the book.
-          You know, you know. I know, I know.
-          You know, you know. I know, I know.
-          You know, you know. I know, I know.
-        </p>
+    @for (book of books ; track book.id) {
+      <div class="book-item">
+        <img class="book-image" ngSrc="./assets/plant.png" alt="plant" height="823" width="549"/>
+        <div class="book-information">
+          <h3 class="book-title">{{ book.title }}</h3>
+          <p class="book-description">
+            {{ book.description }}
+          </p>
+        </div>
       </div>
-    </div>
+    }
 
-    <div class="book-item">
-      <img class="book-image" ngSrc="assets/flower.png" alt="flower" height="821" width="549"/>
-      <div class="book-information">
-        <h3 class="book-title">Title book</h3>
-        <p class="book-description">
-          Little description of the book.
-          You know, you know. I know, I know.
-          You know, you know. I know, I know.
-          You know, you know. I know, I know.
-        </p>
-      </div>
-    </div>
   </div>
 </div>
