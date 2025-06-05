@@ -1,1 +1,8 @@
-<p>list works!</p>
+<div class="container list-page">
+  <h2>Your library</h2>
+  <div class="books-list">
+    @for (book of books; track book.id){
+      <app-books-item [book]="book" />
+    }
+  </div>
+</div>
