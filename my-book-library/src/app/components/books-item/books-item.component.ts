@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Book} from '../../models/book.model';
+import {BooksService} from '../../services/Books.service';
 
 @Component({
   selector: 'app-books-item',
@@ -9,4 +10,10 @@ import {Book} from '../../models/book.model';
 })
 export class BooksItemComponent {
   @Input() book!: Book;
+
+  constructor(private booksService: BooksService) {}
+
+  deleteBook(book: Book) {
+    this.booksService.deleteBook(book.id);
+  }
 }

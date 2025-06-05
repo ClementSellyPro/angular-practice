@@ -5,6 +5,6 @@
   <p>Rating: {{ this.book.rating }}/10</p>
   <div class="buttons">
     <button class="add-btn">Edit</button>
-    <button class="delete-btn">Delete</button>
+    <button class="delete-btn" (click)="deleteBook(book)">Delete</button>
   </div>
 </div>
