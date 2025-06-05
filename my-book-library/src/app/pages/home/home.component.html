@@ -1,7 +1,7 @@
 <div class="container">
   <div class="welcome">
     <h2 class="title-page">Welcome to your Bookshelf</h2>
-    <p class="welcome-message">You have 47 books in your collection</p>
+    <p class="welcome-message">Here are you last added books</p>
   </div>
   <div class="buttons">
     <button routerLink="/add">Add Book</button>
@@ -9,7 +9,7 @@
   </div>
   <div class="books-list">
 
-    @for (book of books ; track book.id) {
+    @for (book of books.slice(0, 5) ; track book.id) {
       <div class="book-item">
         <img class="book-image" ngSrc="./assets/plant.png" alt="plant" height="823" width="549"/>
         <div class="book-information">

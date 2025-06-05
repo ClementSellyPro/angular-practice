@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1",
+    "title": "The Whispering Forest",
+    "author": "Ava Winters",
+    "year": 2021,
+    "genre": "Fantasy",
+    "description": "A mystical tale of a forest where trees whisper ancient secrets.",
+    "rating": "4.8",
+    "image": "assets/uploads/whispering-forest.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Shadows of Tomorrow",
+    "author": "Liam Carter",
+    "year": 2020,
+    "genre": "Science Fiction",
+    "description": "A gripping story of survival in a dystopian future.",
+    "rating": "4.5",
+    "image": "assets/uploads/shadows-tomorrow.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Beneath the Waves",
+    "author": "Sophie Lang",
+    "year": 2019,
+    "genre": "Adventure",
+    "description": "An underwater expedition reveals secrets long buried.",
+    "rating": "4.2",
+    "image": "assets/uploads/beneath-waves.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Echoes of the Past",
+    "author": "Noah Turner",
+    "year": 2022,
+    "genre": "Historical Fiction",
+    "description": "A time-traveling journey through the lens of a forgotten diary.",
+    "rating": "4.7",
+    "image": "assets/uploads/echoes-past.jpg"
+  },
+  {
+    "id": "5",
+    "title": "The Glass Castle",
+    "author": "Isabelle Ray",
+    "year": 2018,
+    "genre": "Drama",
+    "description": "A family's struggle to survive and rebuild after a tragedy.",
+    "rating": "4.3",
+    "image": "assets/uploads/glass-castle.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Digital Labyrinth",
+    "author": "Mason Brooks",
+    "year": 2021,
+    "genre": "Thriller",
+    "description": "A hacker uncovers a conspiracy in a high-tech maze.",
+    "rating": "4.6",
+    "image": "assets/uploads/digital-labyrinth.jpg"
+  },
+  {
+    "id": "7",
+    "title": "Canvas of Dreams",
+    "author": "Emily Hart",
+    "year": 2020,
+    "genre": "Romance",
+    "description": "An artist's journey through heartbreak and hope.",
+    "rating": "4.4",
+    "image": "assets/uploads/canvas-dreams.jpg"
+  },
+  {
+    "id": "8",
+    "title": "Iron Reign",
+    "author": "Gabriel Stone",
+    "year": 2017,
+    "genre": "Action",
+    "description": "An elite soldier faces betrayal in a ruthless regime.",
+    "rating": "4.1",
+    "image": "assets/uploads/iron-reign.jpg"
+  },
+  {
+    "id": "9",
+    "title": "Harvest Moon",
+    "author": "Luna Blake",
+    "year": 2023,
+    "genre": "Fantasy",
+    "description": "A village’s fate lies in the hands of a reluctant witch.",
+    "rating": "4.9",
+    "image": "assets/uploads/harvest-moon.jpg"
+  },
+  {
+    "id": "10",
+    "title": "Codebreaker",
+    "author": "Ethan West",
+    "year": 2022,
+    "genre": "Techno Thriller",
+    "description": "A cryptographer uncovers a deadly secret in digital code.",
+    "rating": "4.5",
+    "image": "assets/uploads/codebreaker.jpg"
+  }
+]
