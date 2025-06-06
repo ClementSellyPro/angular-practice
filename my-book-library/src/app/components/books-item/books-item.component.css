@@ -36,3 +36,73 @@
   background-color: white;
   border: 1px solid #6cbb2f;
 }
+
+/* =================== Modify =================== */
+.modify-overlay {
+  position: fixed;
+  top: 0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px 20px;
+  width: 400px;
+}
+
+.form-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input {
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #6cbb2f;
+}
+
+.btn-update {
+  background-color: #6cbb2f;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-cancel {
+  margin-left: 20px;
+  background-color: white;
+  color: #6cbb2f;
+  border: 2px solid #6cbb2f;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-add:hover, .btn-cancel:hover {
+  filter: brightness(1.1);
+}

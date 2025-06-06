@@ -37,4 +37,12 @@ export class BooksService {
     this.books.next(updatedBooks);
     localStorage.setItem('books', JSON.stringify(updatedBooks));
   }
+
+  updateBook(updatedBook: Book) {
+    const updatedBooks = this.books.value.map(book =>
+      book.id === updatedBook.id ? updatedBook : book
+    );
+    this.books.next(updatedBooks);
+    localStorage.setItem('books', JSON.stringify(updatedBooks));
+  }
 }

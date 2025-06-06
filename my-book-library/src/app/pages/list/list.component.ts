@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BooksItemComponent} from '../../components/books-item/books-item.component';
 import {Book} from '../../models/book.model';
 import {BooksService} from '../../services/Books.service';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 
 @Component({

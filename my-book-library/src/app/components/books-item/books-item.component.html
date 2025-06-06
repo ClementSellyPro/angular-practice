@@ -4,7 +4,50 @@
   <p>Genre: {{ this.book.genre }}</p>
   <p>Rating: {{ this.book.rating }}/10</p>
   <div class="buttons">
-    <button class="add-btn">Edit</button>
-    <button class="delete-btn" (click)="deleteBook(book)">Delete</button>
+    <button class="add-btn" (click)="modifyBook()">Edit</button>
+    <button class="delete-btn" (click)="deleteBook(book.id)">Delete</button>
+  </div>
+
+  <div class="modify-overlay" *ngIf="isModifying">
+    <form>
+      <h1 class="form-title">Add a New Book</h1>
+      <div class="input-group">
+        <label>Book title</label>
+        <input type="text" name="title" [(ngModel)]="titleModified">
+      </div>
+
+      <div class="input-group">
+        <label>Author</label>
+        <input type="text" name="author" [(ngModel)]="authorModified">
+      </div>
+
+      <div class="input-group">
+        <label>Year</label>
+        <input type="text" name="year" [(ngModel)]="yearModified">
+      </div>
+
+      <div class="input-group">
+        <label>Genre</label>
+        <input type="text" name="genre" [(ngModel)]="genreModified">
+      </div>
+
+      <div class="input-group">
+        <label>Description</label>
+        <textarea [(ngModel)]="descriptionModified"  name="description"></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>Rating</label>
+        <input type="text" name="rating" [(ngModel)]="ratingModified">
+      </div>
+
+      <button class="btn-update" (click)="onSubmitUpdate()">
+        Update Book
+      </button>
+
+      <button class="btn-cancel" (click)="onSubmitUpdate()">
+        Cancel
+      </button>
+    </form>
   </div>
 </div>
