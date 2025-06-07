@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+}
+
+.title-page {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.toggle-theme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.toggle-theme:hover {
+  cursor: pointer;
+}
