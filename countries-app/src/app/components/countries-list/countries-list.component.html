@@ -1,5 +1,7 @@
 <div class='countries-container'>
-  @for(country of (countries$ | async); track country.id){
-    <app-country-item [country]='country' />
+  @for(country of (countries$ | async); track country.alpha3Code){
+    <a class='country-link' [routerLink]="['/information', country.alpha3Code]">
+      <app-country-item [country]='country' />
+    </a>
   }
 </div>

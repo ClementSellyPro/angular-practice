@@ -3,12 +3,14 @@ import { CountryItemComponent } from '../country-item/country-item.component';
 import { DataService } from '../../services/data.service';
 import { Observable } from 'rxjs';
 import { AsyncPipe, NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-countries-list',
   imports: [
     CountryItemComponent,
-    AsyncPipe
+    AsyncPipe,
+    RouterLink
   ],
   templateUrl: './countries-list.component.html',
   styleUrl: './countries-list.component.css'
