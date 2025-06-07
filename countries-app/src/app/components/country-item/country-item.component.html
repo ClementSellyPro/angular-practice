@@ -1,9 +1,11 @@
 <div class='country-container'>
-    <div class='flag'></div>
+    <div class='flag-container'>
+      <img class='flag' [src]='country.flags.svg' alt='Flag' />
+    </div>
     <div class='country-info'>
-      <h2 class='country-title'>Germany</h2>
-      <p><span class='country-category'>Population:</span> 81,700,900</p>
-      <p><span class='country-category'>Region:</span> Europe</p>
-      <p><span class='country-category'>Capital:</span> Berlin</p>
+      <h2 class='country-title'>{{ country.name }}</h2>
+      <p><span class='country-category'>Population:</span> {{ country.population }}</p>
+      <p><span class='country-category'>Region:</span> {{ country.region }}</p>
+      <p><span class='country-category'>Capital:</span> {{ country.capital }}</p>
     </div>
   </div>

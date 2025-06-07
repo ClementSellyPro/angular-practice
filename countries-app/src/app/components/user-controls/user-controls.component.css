@@ -10,7 +10,6 @@
   height: 50px;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: var(--bg-element-color);
 }
 
 .controls-region {
@@ -19,11 +18,12 @@
   height: 50px;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: var(--bg-element-color);
 }
 
 .controls-search, .controls-region {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-element-color);
+  color: var(--text-color);
 }
 
 .controls-region:hover {

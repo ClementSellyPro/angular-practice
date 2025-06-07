@@ -1,7 +1,5 @@
 <div class='countries-container'>
-  <app-country-item />
-  <app-country-item />
-  <app-country-item />
-  <app-country-item />
-  <app-country-item />
+  @for(country of (countries$ | async); track country.id){
+    <app-country-item [country]='country' />
+  }
 </div>
