@@ -7,13 +7,15 @@
 }
 
 :root {
-  --bg-color: hsl(0, 0%, 99%);
+  --bg-color: hsl(0, 0%, 97%);
   --text-color: hsl(200, 15%, 8%);
+  --bg-element-color: hsl(0, 100%, 100%);
 }
 
 .dark-theme {
   --bg-color: hsl(207, 26%, 17%);
   --text-color: hsl(0, 100%, 100%);
+  --bg-element-color: hsl(209, 23%, 22%);
 }
 
 body {

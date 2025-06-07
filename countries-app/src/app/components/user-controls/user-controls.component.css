@@ -1,0 +1,31 @@
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls-search {
+  outline: none;
+  border: none;
+  width: 400px;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--bg-element-color);
+}
+
+.controls-region {
+  border: none;
+  width: 200px;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--bg-element-color);
+}
+
+.controls-search, .controls-region {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.controls-region:hover {
+  cursor: pointer;
+}

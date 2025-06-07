@@ -1,0 +1,7 @@
+.countries-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  padding: 50px 0;
+  row-gap: 80px;
+}

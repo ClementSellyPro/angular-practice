@@ -1,0 +1,30 @@
+.country-container {
+  width: 280px;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--bg-element-color);
+}
+
+.flag {
+  height: 150px;
+  background-color: rgb(0, 0, 0)
+}
+
+.country-info {
+  padding: 20px 15px;
+}
+
+.country-info p {
+  font-size: 14px;
+}
+
+.country-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.country-category {
+  font-weight: 600;
+}
