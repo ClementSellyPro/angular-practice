@@ -1,12 +1,12 @@
 <div class='controls-container'>
   <input class='controls-search' type='text' placeholder='Search for a country...' [(ngModel)]='search' />
 
-  <select class='controls-region' id="region">
+  <select class='controls-region' id="region" [(ngModel)]='filterSelection' (click)="onFilterSelection()">
     <option value="">Filter by Region</option>
-    <option value="africa">Africa</option>
-    <option value="americas">Americas</option>
-    <option value="asia">Asia</option>
-    <option value="europe">Europe</option>
-    <option value="ocenia">Ocenia</option>
+    <option value="Africa">Africa</option>
+    <option value="Americas">Americas</option>
+    <option value="Asia">Asia</option>
+    <option value="Europe">Europe</option>
+    <option value="Oceania">Oceania</option>
   </select>
 </div>
