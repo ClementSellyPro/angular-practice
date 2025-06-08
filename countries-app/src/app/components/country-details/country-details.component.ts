@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-country-details',
@@ -6,6 +7,14 @@ import { Component, Input } from '@angular/core';
   templateUrl: './country-details.component.html',
   styleUrl: './country-details.component.css'
 })
-export class CountryDetailsComponent {
+export class CountryDetailsComponent implements OnInit {
   @Input() countryId!: string;
+  countrySelection!: any;
+
+  constructor(private dataService: DataService){}
+
+  ngOnInit(): void {
+    this.countrySelection = this.dataService.allCountries.filter(country => country.alpha3Code === this.countryId)[0];
+    console.log(this.countrySelection);
+  }
 }

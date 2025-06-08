@@ -1,27 +1,41 @@
 <div class='details-container'>
   <div class='details-flag-container'>
-
+    <img [src]='countrySelection.flags.png' alt='Flag' class='details-flag' />
   </div>
   <div class='details-text'>
-    <h1>Belgium</h1>
+    <h1>{{ countrySelection.name }}</h1>
     <div class='details-info'>
       <div class='details-info-one'>
-        <p><span class='details-info-category'>Native Name: </span> Belge</p>
-        <p><span class='details-info-category'>Population: </span> 11.319.511</p>
-        <p><span class='details-info-category'>Region: </span> Europe</p>
-        <p><span class='details-info-category'>Sub Region: </span> Western Europe</p>
-        <p><span class='details-info-category'>Capital: </span> Brussels</p>
+        <p><span class='details-info-category'>Native Name: </span>{{ countrySelection.nativeName}}</p>
+        <p><span class='details-info-category'>Population: </span>{{ countrySelection.population }}</p>
+        <p><span class='details-info-category'>Region: </span>{{ countrySelection.region }}</p>
+        <p><span class='details-info-category'>Sub Region: </span>{{ countrySelection.subregion }}</p>
+        <p><span class='details-info-category'>Capital: </span>{{ countrySelection.capital }}</p>
       </div>
       <div class='details-info-two'>
-        <p><span class='details-info-category'>Top Level Domain: </span> .be</p>
-        <p><span class='details-info-category'>Currencies: </span> Euro</p>
-        <p><span class='details-info-category'>Languages: </span> <span>Dutch,</span> <span>French</span></p>
+        <p><span class='details-info-category'>Top Level Domain: </span>{{ countrySelection.topLevelDomain[0] }}</p>
+        <p><span class='details-info-category'>Currencies: </span>{{ countrySelection.currencies[0]?.name}}</p>
+        <div class='details-languages'>
+          <span class='details-info-category'>Languages: </span> 
+          <p class='details-languages-list'>
+            @for(language of countrySelection.languages; track $index){
+              <span>{{ language.name }}</span>
+            }
+          </p>
+        </div>
       </div>
     </div>
     <div class='details-border'>
       <p class='details-info-category'>Border Countries: </p>
       <p class='details-border-items'>
-          <span class='details-border-item'>France</span><span class='details-border-item'>Germany</span>
+        @if(countrySelection?.borders?.length > 0){
+          @for(border of countrySelection.borders; track $index){
+            <span class='details-border-item'>{{ border }}</span>
+          }
+        } @else {
+          <span>No border countries</span>
+        }
+        
       </p>
     </div>
   </div>
