@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CountryDetailsComponent } from '../../components/country-details/country-details.component';
 
 @Component({
   selector: 'app-information',
-  imports: [],
+  imports: [
+    RouterLink,
+    CountryDetailsComponent
+  ],
   templateUrl: './information.component.html',
   styleUrl: './information.component.css'
 })
