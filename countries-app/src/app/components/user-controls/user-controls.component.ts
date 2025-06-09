@@ -10,12 +10,12 @@ import { DataService } from '../../services/data.service';
   styleUrl: './user-controls.component.css'
 })
 export class UserControlsComponent {
-  search!: string;
-  filterSelection: string = '';
+  search: string = '';
+  region: string = '';
 
   constructor(private dataService: DataService){}
 
-  onFilterSelection(){
-    this.dataService.filterData(this.filterSelection);
+  onFilterChange(){
+    this.dataService.filterData(this.region, this.search);
   }
 }
