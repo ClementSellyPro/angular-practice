@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { NoteType } from '../models/note.model';
+import { supabase } from './supabaseClient';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class NotesService {
   isAllNotesSelected$: Observable<boolean> = this.isAllNotesSelected.asObservable();
 
   defaultNote: NoteType = {
-    id: '', title: '', lastEdited: Date.now(), text: '', tag: '', isArchived: false
+    id: '', title: '', lastEdited: Date(), text: '', tag: '', isArchived: false
   };
 
   currentNote: BehaviorSubject<NoteType> = new BehaviorSubject<NoteType>(this.defaultNote);
@@ -27,49 +29,64 @@ export class NotesService {
   isModalOpen$: Observable<boolean> = this.isModalOpen.asObservable();
 
   constructor() {
-    const retrievedData = localStorage.getItem('notes');
+    // const retrievedData = localStorage.getItem('notes');
 
-    if(!retrievedData){
-      this.allNotes.next([
-        {
-          id: '1',
-          title: 'Grocery List',
-          lastEdited: Date.now() - 1000000,
-          text: 'Milk, Bread, Eggs, Butter',
-          tag: 'Personal',
-          isArchived: false
-        },
-        {
-          id: '2',
-          title: 'Meeting Notes',
-          lastEdited: Date.now() - 200000,
-          text: 'Discuss Q3 roadmap and hiring goals.',
-          tag: 'Work',
-          isArchived: false
-        },
-        {
-          id: '3',
-          title: 'Books to Read',
-          lastEdited: Date.now() - 5000000,
-          text: 'Atomic Habits, Deep Work, Clean Architecture',
-          tag: 'Personnal',
-          isArchived: true
-        },
-        {
-          id: '5',
-          title: 'Vacation Plan',
-          lastEdited: Date.now() - 700000,
-          text: 'Look into flights to Italy and Airbnb options.',
-          tag: 'Personnal',
-          isArchived: true
-        }
-      ]);
-      this.saveNotes(this.allNotes.value);
+    // if(!retrievedData){
+    //   this.allNotes.next([
+    //     {
+    //       id: '1',
+    //       title: 'Grocery List',
+    //       lastEdited: Date.now() - 1000000,
+    //       text: 'Milk, Bread, Eggs, Butter',
+    //       tag: 'Personal',
+    //       isArchived: false
+    //     },
+    //     {
+    //       id: '2',
+    //       title: 'Meeting Notes',
+    //       lastEdited: Date.now() - 200000,
+    //       text: 'Discuss Q3 roadmap and hiring goals.',
+    //       tag: 'Work',
+    //       isArchived: false
+    //     },
+    //     {
+    //       id: '3',
+    //       title: 'Books to Read',
+    //       lastEdited: Date.now() - 5000000,
+    //       text: 'Atomic Habits, Deep Work, Clean Architecture',
+    //       tag: 'Personnal',
+    //       isArchived: true
+    //     },
+    //     {
+    //       id: '5',
+    //       title: 'Vacation Plan',
+    //       lastEdited: Date.now() - 700000,
+    //       text: 'Look into flights to Italy and Airbnb options.',
+    //       tag: 'Personnal',
+    //       isArchived: true
+    //     }
+    //   ]);
+    //   this.saveNotes(this.allNotes.value);
+    // } else {
+    //   this.allNotes.next(JSON.parse(retrievedData));
+    // }
+    // this.notesData = this.allNotes.value;
+    // this.currentNote.next(this.allNotes.value[0]);
+    this.fetchNotes()
+  }
+
+  async fetchNotes() {
+    const { data, error } = await supabase
+      .from('notes')
+      .select('*')
+      .order('lastEdited', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching notes:', error);
     } else {
-      this.allNotes.next(JSON.parse(retrievedData));
+      this.allNotes.next(data as NoteType[]);
+      this.notesData = this.allNotes.value;
     }
-    this.notesData = this.allNotes.value;
-    this.currentNote.next(this.allNotes.value[0]);
   }
 
   openModal() {
@@ -80,12 +97,23 @@ export class NotesService {
     this.isModalOpen.next(false);
   }
 
-  addNewNote(note: NoteType) {
-    const updatedList = [...this.allNotes.value, note];
-    this.allNotes.next(updatedList);
-    this.saveNotes(updatedList);
-    this.getAllNotes();
-    this.sortNewNotesFirst();
+  // addNewNote(note: NoteType) {
+  //   const updatedList = [...this.allNotes.value, note];
+  //   this.allNotes.next(updatedList);
+  //   this.saveNotes(updatedList);
+  //   this.getAllNotes();
+  //   this.sortNewNotesFirst();
+  // }
+  async addNewNote(note: NoteType) {
+    const newNote = { ...note, id: uuidv4(), lastEdited: new Date().toISOString() };
+    
+    const { error} = await supabase.from('notes').insert([newNote]);
+    
+    if (error) {
+      console.error('Error adding note: ', error);
+    } else {
+      this.fetchNotes();
+    }
   }
 
   getAllNotes() {
@@ -157,7 +185,9 @@ export class NotesService {
   }
 
   sortNewNotesFirst() {
-    const sortedNotes = this.allNotes.value.sort((a, b) => b.lastEdited - a.lastEdited);
+    const sortedNotes = [...this.allNotes.value].sort((a, b) =>
+      new Date(b.lastEdited).getTime() - new Date(a.lastEdited).getTime()
+    );
     this.allNotes.next(sortedNotes);
   }
 }
