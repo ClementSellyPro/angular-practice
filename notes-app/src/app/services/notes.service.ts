@@ -29,50 +29,8 @@ export class NotesService {
   isModalOpen$: Observable<boolean> = this.isModalOpen.asObservable();
 
   constructor() {
-    // const retrievedData = localStorage.getItem('notes');
-
-    // if(!retrievedData){
-    //   this.allNotes.next([
-    //     {
-    //       id: '1',
-    //       title: 'Grocery List',
-    //       lastEdited: Date.now() - 1000000,
-    //       text: 'Milk, Bread, Eggs, Butter',
-    //       tag: 'Personal',
-    //       isArchived: false
-    //     },
-    //     {
-    //       id: '2',
-    //       title: 'Meeting Notes',
-    //       lastEdited: Date.now() - 200000,
-    //       text: 'Discuss Q3 roadmap and hiring goals.',
-    //       tag: 'Work',
-    //       isArchived: false
-    //     },
-    //     {
-    //       id: '3',
-    //       title: 'Books to Read',
-    //       lastEdited: Date.now() - 5000000,
-    //       text: 'Atomic Habits, Deep Work, Clean Architecture',
-    //       tag: 'Personnal',
-    //       isArchived: true
-    //     },
-    //     {
-    //       id: '5',
-    //       title: 'Vacation Plan',
-    //       lastEdited: Date.now() - 700000,
-    //       text: 'Look into flights to Italy and Airbnb options.',
-    //       tag: 'Personnal',
-    //       isArchived: true
-    //     }
-    //   ]);
-    //   this.saveNotes(this.allNotes.value);
-    // } else {
-    //   this.allNotes.next(JSON.parse(retrievedData));
-    // }
-    // this.notesData = this.allNotes.value;
-    // this.currentNote.next(this.allNotes.value[0]);
-    this.fetchNotes()
+    this.fetchNotes();
+    this.currentNote.next(this.allNotes.value[0]);
   }
 
   async fetchNotes() {
@@ -97,17 +55,10 @@ export class NotesService {
     this.isModalOpen.next(false);
   }
 
-  // addNewNote(note: NoteType) {
-  //   const updatedList = [...this.allNotes.value, note];
-  //   this.allNotes.next(updatedList);
-  //   this.saveNotes(updatedList);
-  //   this.getAllNotes();
-  //   this.sortNewNotesFirst();
-  // }
   async addNewNote(note: NoteType) {
     const newNote = { ...note, id: uuidv4(), lastEdited: new Date().toISOString() };
     
-    const { error} = await supabase.from('notes').insert([newNote]);
+    const { error } = await supabase.from('notes').insert([newNote]);
     
     if (error) {
       console.error('Error adding note: ', error);
@@ -141,25 +92,35 @@ export class NotesService {
     this.isCurrentArchived();
   }
 
-  deleteNote() {
-    this.notesData.filter(note => note.id !== this.currentNote.value.id);
-    this.allNotes.next(this.allNotes.value.filter(note => note.id !== this.currentNote.value.id));
+  async deleteNote() {
+    const id = this.currentNote.value.id;
     
-    this.saveNotes(this.allNotes.value);
+    const { error } = await supabase.from('notes').delete().eq('id', id);
+    
+    if (error) {
+      console.log('Error deleting note:', error);
+    } else {
+      this.fetchNotes();
+    }
   }
 
-  archiveNote() {
-    this.notesData.forEach(note => {
-      if(note.id === this.currentNote.value.id){
-        note.isArchived = true;
-      }
-    });
-    this.allNotes.value.forEach(note => {
-      if(note.id === this.currentNote.value.id){
-        note.isArchived = true;
-      }
-    });
+  async archiveNote() {
+    // this.notesData.forEach(note => {
+    //   if(note.id === this.currentNote.value.id){
+    //     note.isArchived = true;
+    //   }
+    // });
+    // this.allNotes.value.forEach(note => {
+    //   if(note.id === this.currentNote.value.id){
+    //     note.isArchived = true;
+    //   }
+    // });
+    const id = this.currentNote.value.id;
+    const updatedNote = {...this.currentNote.value, isArchived: true};
+
+    const { error } = await supabase.from('notes').update(updatedNote).eq('id', id);
     this.saveNotes(this.allNotes.value);
+
     this.isCurrentArchived();
     this.sortNewNotesFirst();
   }
