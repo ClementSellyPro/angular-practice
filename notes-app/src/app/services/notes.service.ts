@@ -30,7 +30,6 @@ export class NotesService {
 
   constructor() {
     this.fetchNotes();
-    this.currentNote.next(this.allNotes.value[0]);
   }
 
   async fetchNotes() {
@@ -43,7 +42,11 @@ export class NotesService {
       console.error('Error fetching notes:', error);
     } else {
       this.allNotes.next(data as NoteType[]);
-      this.notesData = this.allNotes.value;
+      if(data && data.length > 0){
+        this.notesData = this.allNotes.value;
+        this.currentNote.next(data[0]);
+        this.isCurrentArchived();
+      }
     }
   }
 
@@ -72,9 +75,9 @@ export class NotesService {
     return this.allNotes;
   }
 
-  saveNotes(allNotes: NoteType[]) {
-    localStorage.setItem('notes', JSON.stringify(allNotes));
-  }
+  // saveNotes(allNotes: NoteType[]) {
+  //   localStorage.setItem('notes', JSON.stringify(allNotes));
+  // }
 
   filterSelection() {
     if(!this.isAllNotesSelected.value){
@@ -87,9 +90,11 @@ export class NotesService {
   }
 
   noteSelection(id: string) {
-    const selectedNote = this.allNotes.value.filter(note => note.id === id);
-    this.currentNote.next(selectedNote[0]);
-    this.isCurrentArchived();
+    const selectedNote = this.allNotes.getValue().find(note => note.id === id);
+    if(selectedNote) {
+      this.currentNote.next(selectedNote);
+      this.isCurrentArchived();
+    }
   }
 
   async deleteNote() {
@@ -105,40 +110,24 @@ export class NotesService {
   }
 
   async archiveNote() {
-    // this.notesData.forEach(note => {
-    //   if(note.id === this.currentNote.value.id){
-    //     note.isArchived = true;
-    //   }
-    // });
-    // this.allNotes.value.forEach(note => {
-    //   if(note.id === this.currentNote.value.id){
-    //     note.isArchived = true;
-    //   }
-    // });
-    const id = this.currentNote.value.id;
-    const updatedNote = {...this.currentNote.value, isArchived: true};
-
-    const { error } = await supabase.from('notes').update(updatedNote).eq('id', id);
-    this.saveNotes(this.allNotes.value);
-
-    this.isCurrentArchived();
-    this.sortNewNotesFirst();
+    this.updateNoteArchiveStatus(true);
   }
 
-  unarchiveNote() {
-    this.notesData.forEach(note => {
-      if(note.id === this.currentNote.value.id){
-        note.isArchived = false;
-      }
-    });
-    this.allNotes.value.forEach(note => {
-      if(note.id === this.currentNote.value.id){
-        note.isArchived = false;
-      }
-    });
-    this.saveNotes(this.allNotes.value);
-    this.isCurrentArchived();
-    this.sortNewNotesFirst();
+  async unarchiveNote() {
+    this.updateNoteArchiveStatus(false);
+  }
+
+  private async updateNoteArchiveStatus(isArchived: boolean) {
+    const id = this.currentNote.getValue().id;
+
+    const { error } = await supabase.from('notes').update({ isArchived: isArchived }).eq('id', id);
+
+    if (error) {
+      console.error(`Error ${isArchived ? 'archiving' : 'unarchiving' } note: `, error);
+      return
+    } 
+
+    await this.fetchNotes();
   }
 
   isCurrentArchived() {
